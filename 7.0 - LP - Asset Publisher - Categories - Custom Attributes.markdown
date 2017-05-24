@@ -9,7 +9,7 @@
 #### Description: ####
 This test is designed to have the user create custom attributes for users and use these attributes as categories to filter assets in the Asset Publisher portlet. Note that if the user does not enter a value in the custom field for the user, the Asset Publisher will not apply that attribute as a filter. For example, the user has created a Location custom field for the user. If the Location field is blank, then the Asset Publisher custom filter will not apply Location as a filter.
 
-This test is from: [6.1 - LP - Asset Publisher - Categories - Custom Attributes]. It will need to be reformatted.
+This test is from: [6.2 - LP - Asset Publisher - Categories - Custom Attributes.markdown].
 
 **Product Edition:** CE
 
