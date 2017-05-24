@@ -1,1 +1,185 @@
+7.0 - LP - Asset Publisher - Categories - Custom Attributes
+===========================================================
+****
+#### Prerequisites: ####
+* Environment has been cleaned
+* User is logged in as test@liferay.com
+* User is in the liferay.com site
 
+#### Description: ####
+This test is designed to have the user create custom attributes for users and use these attributes as categories to filter assets in the Asset Publisher portlet. Note that if the user does not enter a value in the custom field for the user, the Asset Publisher will not apply that attribute as a filter. For example, the user has created a Location custom field for the user. If the Location field is blank, then the Asset Publisher custom filter will not apply Location as a filter.
+
+This test is from: [6.1 - LP - Asset Publisher - Categories - Custom Attributes]. It will need to be reformatted.
+
+**Product Edition:** CE
+
+**Priority:** 3
+
+**Estimate:** 30 Minutes
+
+****
+#### Road Map: ####
+1. [Add Custom Fields](#AddCustomFields)    
+1. [Add User With Custom Field](#AddUserWithCustomField)    
+1. [Add Web Content With Custom Field](#AddWebContentWithCustomField)    
+1. [Add Asset Publisher](#AddAssetPublisher)    
+1. [Add A Web Content With Custom Field As Test1](#AddAWebContentWithCustomFieldAsTest1)    
+1. [Assert Custom Fields](#AssertCustomFields)    
+1. [Modify Custom Fields](#ModifyCustomFields)    
+
+****
+
+#### Test Steps: ####
+1. <a href="#AddCustomFields" name="AddCustomFields"></a>Click Go to > Control Panel > Configuration > Custom Fields
+1. Click User
+1. Click '+' button to Add Custom Field
+1. Enter the following:     
+	(a) __Key:__	Location
+1. Select 'Text Field - Indexed' from the Type drop down
+1. Click Save
+1. Click '+' button to Add Custom Field
+1. Enter the following:     
+	(a) __Key:__	Rank
+1. Select 'Text Field - Indexed' from the Type drop down
+1. Click Save
+1. Select Global from the Site Selector   
+1. Click Categories
+1. Click '+' button to Add Vocabulary
+1. Enter the following:    
+	(a) __Name:__			Location    
+	(b) __Description:__	Location custom field
+1. Click Save
+1. Assert that 'Location' displays  
+1. Click 'Location' Vocabulary
+1. Click '+' button to Add Category
+1. Enter the following:    
+	(a) __Name:__			Chicago     
+	(b) __Description:__	(a brief description)
+1. Click Save
+1. Assert that 'Chicago' displays
+1. Click '<' to go back
+1. Click '+' button to Add Vocabulary
+1. Enter the following:    
+	(a) __Name:__			Rank    
+	(b) __Description:__	Rank custom field
+1. Click Save
+1. Assert that 'Rank' displays
+1. Click 'Rank' Vocabulary
+1. Click '+' button to Add Category
+1. Enter the following:    
+	(a) __Name:__			Jedi Master     
+	(b) __Description:__	Jedi Master rank
+1. Click Save
+1. Click '+' button to Add Category
+1. Enter the following:    
+	(a) __Name:__			Jedi Knight     
+	(b) __Description:__	Jedi Knight rank
+1. Click Save
+1. Click Users and Organizations
+1. Click test
+1. Click Custom Fields in the Miscellaneous tab
+1. Enter the following:    
+	(a) __Location:__	Chicago    
+	(b) __Rank:__		leave blank    
+1. Click Save     
+<a href="#AddUserWithCustomField" name="AddUserWithCustomField">Add User With Custom Field</a>
+1. Click the ![Add] Add icon in User tab
+1. Enter the following:    
+	(a) __Screen Name:__		test1    
+	(b) __Email Address:__		test1@liferay.com    
+	(c) __First Name:__			test1    
+	(d) __Last Name:__			one
+1. Click Save
+1. Click Password 
+1. Enter the following:    
+	(a) __New Password:__		test    
+	(b) __Enter Again:__		test
+1. Click Sites 
+1. Click ![Select] Select
+1. Click Liferay
+1. Click Roles 
+1. Click ![Select] Select for Regular Roles
+1. Choose Administrator
+1. Click Custom Fields in the Miscellaneous tab
+1. Enter the following:    
+	(a) __Location:__		(leave blank)    
+	(b) __Rank:__			Jedi Master
+1. Click Save
+1. Select Liferay from the Site Selector   
+<a href="#AddWebContentWithCustomField" name="AddWebContentWithCustomField">Add Web Content With Custom Field</a>
+1. Click ellipsis behind Public Page > Add Public Page
+1. Enter [Web Content Page] in the Page Name field
+1. Make sure you are at Web Content Page
+1. Click Add > Web Content Display
+1. Click '+' > Basic Web cotnent to Add Web Content
+1. Enter the following:    
+	(a) __Title:__		Chicago    
+	(b) __Content:__	This is the first web content article
+1. Click Metadata
+1. Click Select under Location
+1. Flag Chicago checkbox in the Categories window    
+1. Click Done 
+1. Click Publish
+1. Assert that 'This is the first web content article' displays in the Web Content Display portlet
+1. Click '+' > Basic Web cotnent to Add Web Content
+1. Enter the following:    
+	(a) __Title:__		web content 2    
+	(b) __Content:__	This is the second web content article
+1. Click Publish     
+<a href="#AddAssetPublisher" name="AddAssetPublisher">Add Asset Publisher</a>
+1. Click Add > Asset Publisher
+1. Assert that 'Chicago' displays in the Asset Publisher portlet
+1. Assert that 'web content article 2' displays in the Asset Publisher portlet    
+![image07]
+1. Click Sign Out       
+<a href="#AddAWebContentWithCustomFieldAsTest1" name="AddAWebContentWithCustomFieldAsTest1">Add A Web Content With Custom Field As Test1</a>
+1. Sign in as test1@liferay.com
+1. Click the Web Content Page
+1. Click '+' > Basic Web cotnent to Add Web Content
+1. Enter the following:    
+	(a) __Title:__			Jedi Academy    
+	(b) __Description:__	Jedi Academy introduction
+1. Click Metadata
+1. Click the Select button for the Rank Vocabulary    
+1. Flag the Jedi Master checkbox    
+1. Click Done
+1. Click Publish
+1. Refresh the page
+1. Assert that 'Jedi Academy' displays in the Asset Publisher portlet    
+1. Click Sign Out      
+<a href="#AssertCustomFields" name="AssertCustomFields">Assert Custom Fields</a>
+1. Sign in as test@liferay.com
+1. Click the Web Content Page
+1. Assert that 'Jedi Academy' displays in the Asset Publisher portlet
+1. Assert that 'web content article 2' displays in the Asset Publisher portlet
+1. Assert that 'Chicago' displays in the Asset Publisher portlet    
+1. Click the ellipsis in Asset Publisher > Configuration
+1. Enter [Location] in the Custom User Atrributes Field under Displayed assets must match these custom user profile attributes  
+1. Click Save
+1. Close the Configuration window
+1. Assert that 'Chicago' displays in the Asset Publisher portlet
+1. Assert that 'Jedi Academy' does not display in the Asset Publisher portlet
+1. Assert that 'web content article 2' does not display in the Asset Publisher portlet     
+1. Click the ellipsis in Asset Publisher > Configuration
+1. Enter [Rank] in the Displayed assets must match these custom user profile attributes field
+1. Click Save
+1. Close the Configuration window
+1. Assert that 'Jedi Academy' displays in the Asset Publisher portlet
+1. Assert that 'web content article 2' displays in the Asset Publisher portlet
+1. Assert that 'Chicago' displays in the Asset Publisher portlet    
+<a href="#ModifyCustomFields" name="ModifyCustomFields">Modify Custom Fields</a>
+1. Go to the Control Panel > Users and Organizations
+1. Click test
+1. Click Custom Fields in the right container
+1. Assert that Chicago displays in Location field
+1. Enter the following:    
+	(a) __Rank:__		Jedi Master
+1. Click Save
+1. Click Go to Site link in Site Administration
+1. Click the Web Content Page
+1. Click the ellipsis in Asset Publisher > Configuration
+1. Assert that 'Rank' displays in the Displayed assets must match these custom user profile attributes field
+1. Close the Configuration window
+1. Assert that 'Jedi Academy' displays in the Asset Publisher portlet
+1. Assert that 'web content article 2' does not display in the Asset Publisher portlet
+1. Assert that 'Chicago' does not display in the Asset Publisher portlet    
