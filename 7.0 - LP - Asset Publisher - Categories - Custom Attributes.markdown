@@ -95,10 +95,10 @@ This test is from: [6.2 - LP - Asset Publisher - Categories - Custom Attributes]
 	(a) __New Password:__		test    
 	(b) __Enter Again:__		test
 1. Click Sites 
-1. Click ![Select] Select
+1. Click Select button to Select
 1. Click Liferay
 1. Click Roles 
-1. Click ![Select] Select for Regular Roles
+1. Click Select button and Select for Regular Roles
 1. Choose Administrator
 1. Click Custom Fields in the Miscellaneous tab
 1. Enter the following:    
