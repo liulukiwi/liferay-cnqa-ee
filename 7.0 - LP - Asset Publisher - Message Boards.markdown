@@ -10,6 +10,7 @@
 This test is designed to have the user assert when clicking on the Message Boards thread in the Asset Publisher portlet, they are redirected to the Message Boards portlet. The user will then assert that clicking the Back navigation on the Message Boards portlet will redirect back to the Asset Publisher portlet.
 
 This test is from: [6.2 - LP - Asset Publisher - Message Boards]. 
+
 **Product Edition:** CE
 
 **Priority:** 3
@@ -33,9 +34,8 @@ This test is from: [6.2 - LP - Asset Publisher - Message Boards].
 1. Close Asset Publisher Configuration window
 1. Click ellipsis behind Public Page > Add Public Page
 1. Enter Message Boards Test Page in the name field
-1. Click the green check mark
-1. Click Message Boards Test Page
-1. Click Add > More...> Collaboration
+1. Make sure you are at Message Boards Test Page
+1. Click Add > Applications > Collaboration
 1. Click Add near the Message Boards portlet
 1. Close Add drop down window 
 1. Click Post New Thread  
@@ -45,14 +45,11 @@ This test is from: [6.2 - LP - Asset Publisher - Message Boards].
 1. Click Asset Publisher Test Page
 1. Assert 'Root Thread' displays
 1. Assert 'This is a root thread message' displays    
-	![Screenshot]
 1. Click Root Thread in Asset Publisher portlet
 1. Assert user is redirected to Message Boards Test Page
 1. Assert Root Thread displays in Message Boards portlet 
 1. Assert 'This is a root thread message' displays   
-	![Screenshot]
-1. Click << Back
+1. Click '<' to Back
 1. Assert user is redirected to Asset Publisher Test Page
 1. Assert 'Root Thread' displays in Asset Publisher portlet
 1. Assert 'This is a root thread message' displays    
-	![Screenshot]
